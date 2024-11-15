@@ -1,0 +1,4 @@
+{
+    "model": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+    "Uri": "https://ews-emea.api.bosch.com/knowledge/insight-and-analytics/llms/d/v1/chat/completions"
+}

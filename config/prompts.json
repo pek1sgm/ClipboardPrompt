@@ -1,0 +1,5 @@
+{
+  "correct": "Correct grammar, style. Preserve language. Provide the corrected text without additional information. Letters with trema are forbidden --> replace with \"ae\", \"oe\" and \"ue\": ",
+  "translate_to_en": "Translate to English. Provide only answer without any explanation or further information: ",
+  "translate_to_ge": "Uebersetze das ins Deutsche. Ersetze Umlaute durch \"ae\", \"oe\" und \"ue\". Nur Antwort ohne Erklaerung: "
+}
