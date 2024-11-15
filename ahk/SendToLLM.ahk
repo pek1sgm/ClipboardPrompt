@@ -15,7 +15,7 @@
 #Include json.ahk ; JSON-Bibliothek einbinden
 ; JSON-Daten global einlesen
 global json
-FileRead, jsonData, C:\temp\context_tool\config\prompts.json
+FileRead, jsonData, ..\config\prompts.json
 json := JSON.Load(jsonData)
 
 ; JSON-Daten in die Log-Datei schreiben
