@@ -12,14 +12,16 @@ Der zu speichernde API-Schlüssel.
 Pfad zur XML-Datei (optional).
 
 .EXAMPLES
-.\StoreApiKey.ps1 -ApiKey "dein-api-key"
-.\StoreApiKey.ps1 -ApiKey "dein-api-key" -XmlFilePath "D:\secure\apikey.xml"
+.\StoreApiKey.ps1 "dein-api-key"
 #>
 
 param (
     [string]$ApiKey,
-    [string]$XmlFilePath = ".\config\apikey.xml"
+    [string]$XmlFilePath
 )
+# Ermittelt das übergeordnete Verzeichnis des aktuellen Skripts
+$parentDir = Get-Item -Path (Get-Item -Path $PSScriptRoot).Parent.FullName
+$XmlFilePath = "$parentDir\config\apikey.xml"
 
 ConvertTo-SecureString $ApiKey -AsPlainText -Force | Export-Clixml -Path $XmlFilePath
 Write-Host "API-Key wurde verschluesselt und in die XML geschrieben: $XmlFilePath"

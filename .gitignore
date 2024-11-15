@@ -1,3 +1,5 @@
 config/apikey.xml 
+config/file_manifest.json 
+config/config.json 
 logs/*.txt 
 scripts/availableLLMmodels.ps1

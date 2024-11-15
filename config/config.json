@@ -1,4 +1,4 @@
 {
-    "model": "add_model",
-    "Uri": "add_enpoint"
+    "model": "llm_model",
+    "Uri": "endpoint_url"
 }

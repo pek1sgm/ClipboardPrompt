@@ -10,12 +10,16 @@ Dieses Projekt bietet eine Reihe von Skripten und Konfigurationsdateien zur Auto
 
 ## Installation
 1. **Repository klonen:**
+`git clone https://github.com/pek1sgm/ClipboardPrompt.git`
+
 
 2. **Bibliothek JSON.ahk installieren:**
 Lade die Datei herunter und speichere sie im Ordner `ahk/`.
 
-3. **API-Key speichern:**
-.\scripts\StoreApiKey.ps1 -ApiKey "dein-api-key"
+3. **Config.json konfigurieren und API-Key speichern:**
+`Config.json` --> passe `"model"` und `"Uri"` an
+`.\scripts\StoreApiKey.ps1 -ApiKey "dein-api-key"`
+
 
 ## Verwendung
 ### Hotkeys
