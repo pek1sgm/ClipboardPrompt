@@ -1,2 +1,3 @@
 config/apikey.xml 
 logs/*.txt 
+scripts/availableLLMmodels.ps1
