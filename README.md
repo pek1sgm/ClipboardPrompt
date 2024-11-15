@@ -1,29 +1,31 @@
-# LLM Integration Tool
-
+# LLM Clipboard Tool
 ## Überblick
-Dieses Projekt bietet eine Reihe von Skripten und Konfigurationsdateien zur Automatisierung von Anfragen an ein Language Learning Model (LLM). Es kombiniert PowerShell, AutoHotkey und JSON zur einfachen Nutzung und Integration.
+Dieses Tool automatisiert Anfragen an ein Language Learning Model (LLM) über den Zwischenspeicher (Clipboard) und nutzt curl für die Kommunikation.
 
 ## Voraussetzungen
-- **AutoHotkey**: Version 1.1.37.02
+- **AutoHotkey**: Version 1.1.37.02 (befindet sich im Verzeichnis .\ahk)
+  - **AutoHotkeyA32.exe**: ANSI-Version für ältere 32-Bit-Systeme ohne Unicode-Support.  
+  - **AutoHotkeyU32.exe**: Unicode-Version für moderne 32-Bit-Systeme.  
+  - **AutoHotkeyU64.exe**: Unicode-Version für 64-Bit-Systeme, empfohlen für aktuelle Hardware.  
+- **JSON.ahk**: (befindet sich im Verzeichnis .\ahk) [GitHub-Link](https://github.com/cocobelgica/AutoHotkey-JSON)
 - **PowerShell**: Version 5.1 oder höher
-- **JSON.ahk**: [GitHub-Link zur Bibliothek](https://github.com/cocobelgica/AutoHotkey-JSON)
 
 ## Installation
 1. **Repository klonen:**
 `git clone https://github.com/pek1sgm/ClipboardPrompt.git`
 
+2. **install.bat:**
+Starte `.\install.bat` (ggf. AutoHotkey-Version anpassen)
 
-2. **Bibliothek JSON.ahk installieren:**
-Lade die Datei herunter und speichere sie im Ordner `ahk/`.
+3. **Config.json konfigurieren:**
+Passe `Config.json` an: --> `"model"` & `"Uri"`
 
-3. **Config.json konfigurieren und API-Key speichern:**
-`Config.json` --> passe `"model"` und `"Uri"` an
-`.\scripts\StoreApiKey.ps1 -ApiKey "dein-api-key"`
-
+4. **API-Key bereitstellen:**
+Starte `.\scripts\StoreApiKey.ps1 "your-personal-api-key"` (verwende dein persönlichen API-key)
 
 ## Verwendung
 ### Hotkeys
-- **Grammatik korrigieren:** Shift + Strg + Y
+- **Grammatik/Stil verbessern:** Shift + Strg + Y
 - **Ins Englische übersetzen:** Shift + Strg + E
 - **Ins Deutsche übersetzen:** Shift + Strg + D
 
