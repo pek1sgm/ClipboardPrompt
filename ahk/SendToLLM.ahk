@@ -17,23 +17,22 @@ currentDir := A_ScriptDir
 ; Übergeordnetes Verzeichnis bestimmen
 mainDir := RegExReplace(currentDir, "\\[^\\]+$")
 
-#Include json.ahk ; JSON-Bibliothek einbinden
+#Include %A_ScriptDir%\json.ahk ; JSON-Bibliothek einbinden
 ; JSON-Daten global einlesen
-
-promptsFile := mainDir "\config\prompts.json"
-configFile := mainDir "\config\config.json"
-manifestFile := mainDir "\config\file_manifest.json"
-createManifestScript := mainDir "\scripts\CreateFileManifest.ps1"
-
-; Überprüfen, ob file_manifest.json existiert
-IfNotExist, %manifestFile%
-{
-    RunWait, %ComSpec% /c powershell -ExecutionPolicy Bypass -File "%createManifestScript%", , Hide
-}
 
 global prompts_json
 global config_file
 global manifest_json
+
+; manifest_json einlesen
+manifestFile := mainDir "\config\file_manifest.json"
+FileRead, jsonData, %manifestFile%
+manifest_json := JSON.Load(jsonData)
+
+; Pfade aus manifest_json nehmen
+logFile := manifest_json["llm_log.txt"]
+promptsFile := manifest_json["prompts.json"]
+configFile := manifest_json["config.json"]
 
 ; JSON-Daten einlesen
 FileRead, jsonData, %promptsFile%
@@ -41,9 +40,6 @@ prompts_json := JSON.Load(jsonData)
 
 FileRead, jsonData, %configFile%
 config_file := JSON.Load(jsonData)
-
-FileRead, jsonData, %manifestFile%
-manifest_json := JSON.Load(jsonData)
 
 ProcessHotkey(jsonKey) {
     Clipboard := "" ; Clipboard leeren
@@ -56,7 +52,8 @@ ProcessHotkey(jsonKey) {
         scriptPath := manifest_json["RunHiddenLLM.vbs"]
         mainScript := manifest_json["ProcessLLM.ps1"]
         command := scriptPath " -File """ mainScript """ -Text """ clipboardText """"
-        Run, %ComSpec% /c %command%, , Hide
+        Run, %ComSpec% /c %command%, ,Hide
+        Clipboard := command
     } else {
         MsgBox, Fehler: Kein Wert für "%jsonKey%" gefunden.
     }

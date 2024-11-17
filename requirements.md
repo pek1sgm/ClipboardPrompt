@@ -8,7 +8,7 @@
 - JSON.ahk: JSON-Unterstützung für AutoHotkey
 
 ## Konfiguration
-- `apikey.xml`: Verschlüsselte Datei mit API-Schlüssel
+- `apikey.xml`: Verschlüsselte Datei mit API-Key
 - `prompts.json`: JSON-Datei mit vordefinierten Prompts
 
 ## Weitere Informationen
